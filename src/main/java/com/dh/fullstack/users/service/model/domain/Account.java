@@ -13,7 +13,7 @@ public class Account {
 
     //CTRL+ALT+L
     @Id
-    @Column(name = "accountid", nullable = false)
+    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
