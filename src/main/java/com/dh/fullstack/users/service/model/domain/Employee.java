@@ -10,6 +10,7 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumns({
         @PrimaryKeyJoinColumn(name = "employeeid", referencedColumnName = "userid")
 })
+//@DiscriminatorValue("emp") Cuando se esta usando sigle
 public class Employee extends User{
 
     @Column(name = "firstname", length = 50, nullable = false)

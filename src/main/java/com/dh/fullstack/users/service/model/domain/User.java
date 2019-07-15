@@ -10,8 +10,9 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "user_table")
+//@DiscriminatorColumn(name = "tipo")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class User {
+public abstract class User {
 
     @Id
     @Column(name = "userid", nullable = false)
