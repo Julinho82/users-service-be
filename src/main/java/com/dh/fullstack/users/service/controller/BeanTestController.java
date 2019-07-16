@@ -13,7 +13,7 @@ import org.springframework.web.context.annotation.RequestScope;
 @RestController
 @RequestMapping("/accounts")
 @RequestScope
-public class AccountController {
+public class BeanTestController {
 
     private Integer value = 1;
 
