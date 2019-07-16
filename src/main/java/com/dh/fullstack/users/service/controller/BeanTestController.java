@@ -11,7 +11,7 @@ import org.springframework.web.context.annotation.RequestScope;
  * @author Santiago Mamani
  */
 @RestController
-@RequestMapping("/accounts")
+@RequestMapping("/beans")
 @RequestScope
 public class BeanTestController {
 
