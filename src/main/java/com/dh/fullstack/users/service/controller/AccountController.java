@@ -14,6 +14,8 @@ import org.springframework.web.context.annotation.RequestScope;
 @RequestScope
 public class AccountController {
 
+    private Integer value = 1;
+
     private Asus asus;
 
     public AccountController(Asus asus) {
@@ -24,8 +26,9 @@ public class AccountController {
 //        this.asus = new Asus(); NO usar jamas
 //    }
     @RequestMapping(value = "/asus", method = RequestMethod.GET)
-    public Asus readAsus(){
-        asus.setName(asus.getName() + ": GET");
+    public Asus readAsus() {
+        value = value + 1;
+        asus.setName(asus.getName() + ": GET"+ ", Value: " +value);
         return asus;
     }
 }
