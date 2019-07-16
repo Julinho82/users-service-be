@@ -1,6 +1,7 @@
 package com.dh.fullstack.users.service.controller;
 
 import com.dh.fullstack.users.service.bean.Asus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,13 +17,18 @@ public class AccountController {
 
     private Integer value = 1;
 
+    @Autowired
     private Asus asus;
-
-    public AccountController(Asus asus) {
-        this.asus = asus;
-    }
-
-    //    public AccountController() {
+// DI por setter
+//    @Autowired
+//    public void setAsus(Asus asus) {
+//        this.asus = asus;
+//    }
+// DI Por constructor
+//    public AccountController(Asus asus) {
+//        this.asus = asus;
+//    }
+//    public AccountController() {
 //        this.asus = new Asus(); NO usar jamas
 //    }
     @RequestMapping(value = "/asus", method = RequestMethod.GET)
