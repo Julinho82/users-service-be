@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Scope;
 public class Config {
 
     @Bean
-    @Scope("prototype")
+    @Scope("singleton")
     public Asus beanAsus(){
         Asus asus = new Asus();
         asus.setName("I am asus");
