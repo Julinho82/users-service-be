@@ -1,8 +1,11 @@
 package com.dh.fullstack.users.service.controller;
 
 import com.dh.fullstack.users.service.input.AccountInput;
+import com.dh.fullstack.users.service.input.EmployeeCreateInput;
 import com.dh.fullstack.users.service.model.domain.Account;
+import com.dh.fullstack.users.service.model.domain.Employee;
 import com.dh.fullstack.users.service.service.AccountCreateService;
+import com.dh.fullstack.users.service.service.EmployeeCreateService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -18,33 +21,31 @@ import org.springframework.web.context.annotation.RequestScope;
  * @author Santiago Mamani
  */
 @Api(
-        tags = "account rest",
-        description = "Operations over accounts"
+        tags = "employee",
+        description = "Operations over employees"
 )
 @RestController
-@RequestMapping("/accounts")
+@RequestMapping("/public/employees")
 @RequestScope
-public class AccountController {
+public class EmployeeController {
 
     @Autowired
-    private AccountCreateService accountCreateService;
+    private EmployeeCreateService employeeCreateService;
 
     @ApiOperation(
-            value = "Endpoint to create account"
+            value = "Create an employee"
     )
     @ApiResponses({
             @ApiResponse(
                     code = 401,
                     message = "Unauthorized to create account"
-            ),
-            @ApiResponse(
-                    code = 404,
-                    message = "Not fount test"
             )
     })
     @RequestMapping(method = RequestMethod.POST)
-    public Account createAccount(@RequestBody AccountInput input) {
-        accountCreateService.setInput(input);
-        return accountCreateService.save();
+    public Employee createEmployee(@RequestBody EmployeeCreateInput input) {
+        employeeCreateService.setInput(input);
+        employeeCreateService.execute();
+
+        return employeeCreateService.getEmployee();
     }
 }
