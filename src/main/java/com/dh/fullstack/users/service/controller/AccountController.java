@@ -1,9 +1,8 @@
 package com.dh.fullstack.users.service.controller;
 
-import com.dh.fullstack.users.service.bean.Asus;
 import com.dh.fullstack.users.service.input.AccountInput;
 import com.dh.fullstack.users.service.model.domain.Account;
-import com.dh.fullstack.users.service.model.repositories.AccountRepository;
+import com.dh.fullstack.users.service.service.AccountCreateService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -28,7 +27,7 @@ import org.springframework.web.context.annotation.RequestScope;
 public class AccountController {
 
     @Autowired
-    private AccountRepository accountRepository;
+    private AccountCreateService accountCreateService;
 
     @ApiOperation(
             value = "Endpoint to create account"
@@ -45,10 +44,7 @@ public class AccountController {
     })
     @RequestMapping(method = RequestMethod.POST)
     public Account createAccount(@RequestBody AccountInput input) {
-        Account account = new Account();
-        account.setEmail(input.getEmail());
-        account.setState(input.getState());
-
-        return accountRepository.save(account);
+        accountCreateService.setInput(input);
+        return accountCreateService.save();
     }
 }
