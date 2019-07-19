@@ -9,7 +9,7 @@ public class AccountInput {
 
     private String email;
 
-    private AccountState state;
+    private Integer age;
 
     public String getEmail() {
         return email;
@@ -19,11 +19,11 @@ public class AccountInput {
         this.email = email;
     }
 
-    public AccountState getState() {
-        return state;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setState(AccountState state) {
-        this.state = state;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }
