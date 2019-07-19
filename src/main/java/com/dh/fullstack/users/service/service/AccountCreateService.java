@@ -25,6 +25,9 @@ public class AccountCreateService {
     private AccountRepository accountRepository;
 
     public Account save() {
+        System.out.println("countUser: " + usersProperties.getCountUser());
+        System.out.println("nameAsus: " + usersProperties.getNameAsus());
+
         return accountRepository.save(composeAccountInstance());
     }
 
