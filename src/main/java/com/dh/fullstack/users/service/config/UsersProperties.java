@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class UsersProperties {
 
-    @Value("${users.permit.age}")
+    @Value("${users.permit.age:15}")
     private Integer permitAge;
 
     public Integer getPermitAge() {
