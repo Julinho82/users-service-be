@@ -1,5 +1,6 @@
 package com.dh.fullstack.users.service.service;
 
+import com.dh.fullstack.users.service.config.UsersMyProperties;
 import com.dh.fullstack.users.service.config.UsersProperties;
 import com.dh.fullstack.users.service.input.AccountInput;
 import com.dh.fullstack.users.service.model.domain.Account;
@@ -22,11 +23,15 @@ public class AccountCreateService {
     private UsersProperties usersProperties;
 
     @Autowired
+    private UsersMyProperties usersMyProperties;
+
+    @Autowired
     private AccountRepository accountRepository;
 
     public Account save() {
         System.out.println("countUser: " + usersProperties.getCountUser());
         System.out.println("nameAsus: " + usersProperties.getNameAsus());
+        System.out.println("nameAsus: " + usersMyProperties.getApiVersion());
 
         return accountRepository.save(composeAccountInstance());
     }
