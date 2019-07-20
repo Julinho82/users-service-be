@@ -11,5 +11,5 @@ import java.util.Optional;
  */
 public interface AccountRepository extends JpaRepository<Account,Long> {
 
-    Optional<Account> findByEmailAndAndStateOrderBy(String email, AccountState state);
+    Optional<Account> findByEmailAndStateOrderByEmail(String email, AccountState state);
 }
