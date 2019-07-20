@@ -25,7 +25,7 @@ public class BeanTestController {
 //        this.asus = asus;
 //    }
 // DI Por constructor
-//    public AccountController(Asus asus) {
+//    public BeanTestController(Asus asus) {
 //        this.asus = asus;
 //    }
 //    public AccountController() {
